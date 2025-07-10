@@ -1,6 +1,6 @@
 # 🎭 诙谐搞笑用户协议解读器
 
-一个将枯燥法律条文转换为诙谐易懂解读的网页应用，让用户在娱乐中理解用户协议的真实含义。
+一个专注于分析用户协议风险的网页应用，用诙谐搞笑的方式告知用户协议中的真实风险，让用户在娱乐中了解条款的潜在危害。
 
 ## ⚠️ 重要声明
 
@@ -8,18 +8,19 @@
 
 ## 🚀 功能特点
 
-- 📄 **多格式支持**：支持PDF、DOC、TXT格式的用户协议文档
-- 🤖 **智能解析**：基于spaCy的法律条款自动识别
-- 😄 **搞笑解读**：将严肃条文转换为诙谐易懂的解释
-- 📊 **对比展示**：原文与解读内容左右对照显示
-- ⚖️ **风险防控**：完善的法律免责和风险提示机制
+- 🔍 **智能风险识别**：基于OpenAI的5大类风险自动识别（隐私泄露、数据使用、权限滥用、法律责任、经济风险）
+- 📊 **风险等级评估**：4级风险等级划分（LOW/MEDIUM/HIGH/CRITICAL），精准评估风险严重程度
+- 😄 **诙谐风险告知**：将严肃风险转换为幽默但准确的警示文案
+- 📋 **可视化报告**：直观的风险分析报告，颜色标识不同风险等级
+- 📄 **多格式支持**：支持文本粘贴、PDF、DOC、TXT格式协议上传
+- ⚖️ **法律合规**：完善的免责声明和风险提示机制
 
 ## 🛠️ 技术栈
 
 ### 后端
 - **FastAPI** - 高性能Web框架
 - **SQLAlchemy** - ORM数据库操作
-- **spaCy** - 自然语言处理
+- **OpenAI API** - 智能风险分析和诙谐解读生成
 - **SQLite** - 轻量级数据库
 
 ### 前端
@@ -37,7 +38,7 @@ no_responsibility/
 │   ├── database/           # 数据库相关
 │   ├── models/             # 数据模型
 │   ├── services/           # 业务逻辑
-│   ├── nlp/                # NLP处理
+│   ├── ai/                 # AI风险分析
 │   └── utils/              # 工具函数
 ├── frontend/               # 前端代码
 │   ├── src/
@@ -77,9 +78,9 @@ source venv/bin/activate  # Linux/Mac
 # 安装依赖
 pip install -r requirements.txt
 
-# 下载spaCy语言模型
-python -m spacy download zh_core_web_sm
-python -m spacy download en_core_web_sm
+# 配置OpenAI API密钥
+cp env.example .env
+# 编辑.env文件，设置OPENAI_API_KEY
 
 # 初始化数据库
 alembic upgrade head
